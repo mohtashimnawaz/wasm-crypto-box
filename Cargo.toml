@@ -2,6 +2,7 @@
 name = "wasm-crypto-box"
 version = "0.1.0"
 edition = "2024"
+authors = ["Mohtashim Nawaz"]
 description = "Browser-safe WebAssembly wrapper for ed25519 signing and verification"
 license = "MIT"
 readme = "README.md"
@@ -10,6 +11,7 @@ homepage = "https://github.com/<your-username>/wasm-crypto-box"
 documentation = "https://docs.rs/wasm-crypto-box"
 keywords = ["wasm", "ed25519", "crypto", "webassembly", "wasm-bindgen"]
 categories = ["cryptography"]
+exclude = ["pkg/*"]
 
 [lib]
 crate-type = ["cdylib"]
