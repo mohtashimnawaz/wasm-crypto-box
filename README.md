@@ -36,5 +36,22 @@ console.log('verified?', ok);
 - Run `cargo check` / `cargo test` (native tests)
 - Use `wasm-pack build --target web` to generate `pkg/` for browser usage
 
+## Publishing to crates.io
+Before publishing, update `Cargo.toml` with your `repository` and `homepage` fields (if needed) and set an appropriate `authors` field.
+
+Validate packaging locally:
+
+```bash
+cargo publish --dry-run
+```
+
+When ready, publish:
+
+```bash
+cargo publish
+```
+
+You can automate publishing on GitHub by setting a `CARGO_REGISTRY_TOKEN` secret and using the included `.github/workflows/publish.yml` which triggers on `v*` tags.
+
 ## License
 MIT
