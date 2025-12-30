@@ -1,7 +1,7 @@
 use wasm_bindgen::prelude::*;
 use js_sys::Uint8Array;
 use getrandom::getrandom;
-use ed25519_dalek::{PublicKey, SecretKey, Signature, Signer, Verifier, ExpandedSecretKey};
+use ed25519_dalek::{PublicKey, SecretKey, Signature, Verifier, ExpandedSecretKey};
 
 #[wasm_bindgen]
 pub fn generate_keypair() -> Result<js_sys::Object, JsValue> {

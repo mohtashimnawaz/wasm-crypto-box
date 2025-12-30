@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>wasm-crypto-box example</title>
+  </head>
+  <body>
+    <h1>wasm-crypto-box example</h1>
+    <pre id="out"></pre>
+    <script type="module">
+      import init, { generate_keypair, sign, verify } from '../pkg/wasm_crypto_box.js';
+      async function run(){
+        await init();
+        const { secretKey, publicKey } = generate_keypair();
+        const msg = new TextEncoder().encode('hello from wasm');
+        const sig = sign(msg, secretKey);
+        const ok = verify(msg, sig, publicKey);
+        document.getElementById('out').textContent = `verified? ${ok}`;
+      }
+      run();
+    </script>
+  </body>
+</html>
