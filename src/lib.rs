@@ -1,3 +1,19 @@
+//! wasm-crypto-box — Browser-safe WebAssembly wrapper for ed25519
+//!
+//! This crate exposes a tiny set of helpers for generating ed25519 keypairs
+//! and performing signing/verification from JavaScript via `wasm-bindgen`.
+//!
+//! Example (JS):
+//!
+//! ```js
+//! import init, { generate_keypair, sign, verify } from './pkg/wasm_crypto_box.js';
+//! await init();
+//! const { secretKey, publicKey } = generate_keypair();
+//! const msg = new TextEncoder().encode('hello');
+//! const sig = sign(msg, secretKey);
+//! console.log('verified:', verify(msg, sig, publicKey));
+//! ```
+
 use wasm_bindgen::prelude::*;
 use js_sys::Uint8Array;
 use getrandom::getrandom;
